@@ -2,6 +2,18 @@
 @import 'base/theme_info';
 @import 'libs/libs';
 @import 'foundation';
-@import 'styles/underscores';
 
+header#masthead {
+  width: 100%;
+  .site-branding {
+    .site-title,
+    .site-description {
+      text-align: center;
+    }
+    .site-description {
+      width: 30%;
+      margin: 0 auto;
+    }
+  }
+}
 
