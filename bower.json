@@ -1,0 +1,33 @@
+{
+  "name": "viplounge",
+  "version": "0.0.1",
+  "private": "true",
+  "dependencies": {
+    "masonry": "*",
+    "foundation": "zurb/bower-foundation",
+    "font-awesome": "*",
+    "jquery-ui": "*",
+    "animate.css": "*",
+    "get-size": "*",
+    "spin": "*",
+    "waypoints": "*",
+    "typeahead.js": "*",
+    "jquery.tagsinput": "*",
+    "open-sans-fontface": "*",
+    "BrowserDetection.js": "*",
+    "select2": "*",
+    "css3pie": "*",
+    "css3-mediaqueries-js": "*",
+    "imagesloaded": "*",
+    "background-size-polyfill": "*",
+    "normalize-css": "*",
+    "respond": "*",
+    "fizzy-ui-utils": "*",
+    "box-sizing-polyfill": "*",
+    "FitText.js": "*",
+    "CSSSassCollection": "*",
+    "normalize.css": "*",
+    "d3": "*",
+    "lodash": "*"
+  }
+}
