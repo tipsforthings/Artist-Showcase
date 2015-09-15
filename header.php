@@ -18,6 +18,7 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 <?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -30,6 +31,10 @@
 				<p class="site-title <?php if ( get_theme_mod('header_animate') == true ) { ?>animated <?php echo get_theme_mod('title_animation', 'rubberBand'); } ?>"><a class="animated rubberBand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 			<?php endif; ?>
 			<div class="site-description <?php if ( get_theme_mod('header_animate') == true ) { ?>animated <?php echo get_theme_mod('tagline_animation', 'rubberBand'); } ?>"><?php bloginfo( 'description' ); ?></div>
+			<?php if ( get_theme_mod('header_underline') == true ) { ?>
+			  <div id="branding-underline"></div>
+			
+			<?php } ?>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">

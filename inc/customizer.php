@@ -24,6 +24,8 @@ function artist_showcase_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 	$wp_customize->get_section( 'header_image' )->panel = 'header';
 	$wp_customize->get_section( 'title_tagline' )->panel = 'header';
+	$wp_customize->add_section( 'branding_animation', array( 'title'    => __( 'Branding Animation', 'artist_showcase' ), 'panel' => 'header', 'priority' => 3 ) );
+	$wp_customize->add_section( 'branding_underline', array( 'title'    => __( 'Branding Seperator', 'artist_showcase' ), 'panel' => 'header', 'priority' => 4 ) );
 	$wp_customize->get_section( 'header_image' )->priority = '1';
 	$wp_customize->get_section( 'title_tagline' )->priority = '2';
 	$wp_customize->get_section( 'colors' )->panel = 'base';
@@ -37,22 +39,44 @@ function artist_showcase_customize_register( $wp_customize ) {
 	$wp_customize->add_panel( 'base', array( 'title' => __('Base Settings', 'artist_showcase'), 'priority' => '1' ) );
 	$wp_customize->add_setting( 'header_animate', array( 'default' => 'false' ) );
 	$wp_customize->add_setting( 'header_underline', array( 'default' => 'false' ) );
-	$wp_customize->add_control( 'header_animate', array( 'label'    => __( 'Animate Header', 'artist_showcase' ), 'section'  => 'title_tagline', 'settings' => 'header_animate', 'default' => 'false', 'type'     => 'radio', 'choices'  => array(
+	$wp_customize->add_setting( 'branding_gradient', array( 'default' => 'gradient' ) );
+	$wp_customize->add_setting( 'branding_seperator_color', array( 'default' => '#ff0000' ) );
+	$wp_customize->add_setting( 'branding_seperator_height', array( 'default' => '1px' ) );
+	$wp_customize->add_control( 'header_animate', array( 'label'    => __( 'Animate Header', 'artist_showcase' ), 'section'  => 'branding_animation', 'settings' => 'header_animate', 'default' => 'false', 'type'     => 'radio', 'choices'  => array(
 			  'true'  => 'True',
-			  '' => 'False',
+			  'false' => 'False',
 		  ),
 	  )
   );
-	$wp_customize->add_control( 'header_underline', array( 'label'    => __( 'Underline Header', 'artist_showcase' ), 'section'  => 'title_tagline', 'settings' => 'header_underline', 'default' => 'false', 'type'     => 'radio', 'choices'  => array(
+	$wp_customize->add_control( 'header_underline', array( 'label'    => __( 'Enable Seperator', 'artist_showcase' ), 'section'  => 'branding_underline', 'settings' => 'header_underline', 'priority' => 1, 'default' => 'false', 'type'     => 'radio', 'choices'  => array(
 			  'true'  => 'True',
-			  '' => 'False',
+			  'false' => 'False',
 		  ),
 	  )
   );
-	$wp_customize->add_setting( 'title_animation', array( 'default' => '' ) );
+	$wp_customize->add_control( 'branding_gradient', array( 'label'    => __( 'Seperator Style', 'artist_showcase' ), 'section'  => 'branding_underline', 'settings' => 'branding_gradient', 'priority' => 2, 'default' => 'gradient', 'type'     => 'select', 'choices'  => array(
+			  'solid'  => 'Solid',
+			  'gradient' => 'Gradient',
+		  ),
+	  )
+  );
+	$wp_customize->add_control( 'branding_seperator_height', array( 'label'    => __( 'Seperator Thickness', 'artist_showcase' ), 'section'  => 'branding_underline', 'settings' => 'branding_seperator_height', 'priority' => 3, 'default' => 'gradient',	  )
+  );
+	$wp_customize->add_control( 	
+	  new WP_Customize_Color_Control( 
+	    $wp_customize, 
+	    'branding_seperator_color', 
+	    array(
+		    'label'      => __( 'Seperator Color', 'artist_showcase' ),
+		    'section'    => 'branding_underline',
+		    'settings'   => 'branding_seperator_color',
+	    ) 
+	  )
+  );
+ 	$wp_customize->add_setting( 'title_animation', array( 'default' => '' ) );
 	$wp_customize->add_control( 'title_animation', array( 
 	  'label'    => __( 'Title Animation', 'artist_showcase' ), 
-	  'section'  => 'title_tagline', 
+	  'section'  => 'branding_animation', 
 	  'settings' => 'title_animation', 
 	  'type'     => 'select', 
 	  'choices'  => array(
@@ -135,7 +159,7 @@ function artist_showcase_customize_register( $wp_customize ) {
 	  ),
 	 ) );
 	$wp_customize->add_setting( 'tagline_animation', array( 'default' => 'false' ) );
-	$wp_customize->add_control( 'tagline_animation', array( 'label'    => __( 'Tagline Animation', 'artist_showcase' ), 'section'  => 'title_tagline', 'settings' => 'tagline_animation', 'type'     => 'select', 'choices'  => array(
+	$wp_customize->add_control( 'tagline_animation', array( 'label'    => __( 'Tagline Animation', 'artist_showcase' ), 'section'  => 'branding_animation', 'settings' => 'tagline_animation', 'type'     => 'select', 'choices'  => array(
 			  ""  => "",
 			  "bounce"  => "Bounce",
 			  "flash"  => "Flash",
@@ -217,7 +241,31 @@ function artist_showcase_customize_register( $wp_customize ) {
   );
 }
 add_action( 'customize_register', 'artist_showcase_customize_register' );
-
+function artist_showcase_branding() {
+  ?>
+  <style>
+    .site-description {
+      position: relative;
+      padding-bottom: 2px;
+    }
+    body { padding: 0; }
+    .site-description::after {
+      position: absolute;
+      content: "";
+      bottom: 1px;
+      left: 0;
+      height: <?php echo get_theme_mod('branding_seperator_height') ?>;
+      width: 100%;
+      background: <?php echo get_theme_mod('branding_seperator_color') ?>;
+      background: linear-gradient(left, transparent 0%, <?php echo get_theme_mod('branding_seperator_color') ?> 50%, transparent 100%);
+      background: -moz-linear-gradient(left, transparent 0%, <?php echo get_theme_mod('branding_seperator_color') ?> 50%, transparent 100%);
+      background: -o-linear-gradient(left, transparent 0%, <?php echo get_theme_mod('branding_seperator_color') ?> 50%, transparent 100%);
+      background: -webkit-linear-gradient(left, transparent 0%, <?php echo get_theme_mod('branding_seperator_color') ?> 50%, transparent 100%);
+    }
+  
+  </style> <?php
+}
+add_action( 'wp_head', 'artist_showcase_branding' );
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
