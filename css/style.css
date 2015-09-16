@@ -2275,7 +2275,7 @@ body { overflow-x: hidden; max-width: 100%; }
 .sticky nav { padding: 0; }
 .sticky nav ul { margin-top: 0; margin-bottom: 0; }
 
-.admin-bar .sticky.site-header { background-color: #23282d; }
+.admin-bar .sticky.site-header { display: none; background-color: #23282d; }
 .admin-bar .sticky.site-header .site-branding { float: left; width: 12em; margin-top: 32px !important; }
 @media screen and (max-width: 782px) { .admin-bar .sticky.site-header .site-branding { margin-top: 46px !important; } }
 .admin-bar .sticky.site-header .site-branding h1 { font-size: 1.5em; line-height: 1.7em; margin: 0 !important; }

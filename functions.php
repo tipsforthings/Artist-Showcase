@@ -133,6 +133,7 @@ function artist_showcase_scripts() {
 	wp_enqueue_style( 'artist_showcase-style', get_stylesheet_uri() );
 
 	wp_register_script( 'waypoints', get_template_directory_uri() . '/js/jquery.waypoints.min.js', array(), '20120206', true );
+	wp_register_script( 'sticky', get_template_directory_uri() . '/js/sticky.js', array(), '20120206', true );
 	wp_enqueue_script( 'lounge-libs', get_template_directory_uri() . '/js/libs/libs.min.js', array(), '20120206', true );
 	wp_enqueue_script( 'lounge-foundation', get_template_directory_uri() . '/js/libs/foundation.min.js', array(), '20120206', true );
 	wp_enqueue_script( 'lounge-app', get_template_directory_uri() . '/js/app.min.js', array(), '20120206', true );
@@ -143,6 +144,7 @@ function artist_showcase_scripts() {
 	
 	if ( get_theme_mod('sticky_nav') == 'true' ) {
 	  wp_enqueue_script( 'waypoints');
+	  wp_enqueue_script( 'sticky');
 	}
 }
 add_action( 'wp_enqueue_scripts', 'artist_showcase_scripts' );
