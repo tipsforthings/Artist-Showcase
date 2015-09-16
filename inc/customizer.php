@@ -60,6 +60,7 @@ function artist_showcase_customize_register( $wp_customize ) {
 	  )
   );
 	$wp_customize->add_control( 'active_nav_styling', array( 'label'    => __( 'Active Link Styling', 'artist_showcase' ), 'section'  => 'navigation_settings', 'settings' => 'active_nav_styling', 'default' => 'false', 'type'     => 'radio', 'choices'  => array(
+			  'none' => 'None',
 			  'box'  => 'Box',
 			  'underline' => 'Underline',
 			  'radius' => 'Radius',
@@ -302,6 +303,34 @@ function artist_showcase_branding() {
       background: -o-linear-gradient(left, transparent 0%, <?php echo get_theme_mod('branding_seperator_color') ?> 50%, transparent 100%);
       background: -webkit-linear-gradient(left, transparent 0%, <?php echo get_theme_mod('branding_seperator_color') ?> 50%, transparent 100%);
     }
+    <?php if ( get_theme_mod('active_nav_styling') == 'underline' ) : ?>
+      #primary-menu li {
+        position: relative;
+      }
+      li.current_page_item a::after {
+        position: absolute;
+        content: "";
+        bottom: 1px;
+        left: 0;
+        height: <?php echo get_theme_mod('branding_seperator_height') ?>;
+        width: 100%;
+        background: <?php echo get_theme_mod('active_link_color') ?>;
+        background: linear-gradient(left, transparent 0%, <?php echo get_theme_mod('active_link_color') ?> 50%, transparent 100%);
+        background: -moz-linear-gradient(left, transparent 0%, <?php echo get_theme_mod('active_link_color') ?> 50%, transparent 100%);
+        background: -o-linear-gradient(left, transparent 0%, <?php echo get_theme_mod('active_link_color') ?> 50%, transparent 100%);
+        background: -webkit-linear-gradient(left, transparent 0%, <?php echo get_theme_mod('active_link_color') ?> 50%, transparent 100%);
+      }
+		<?php elseif ( get_theme_mod('active_nav_styling') == 'box' ) : ?>
+      li.current_page_item {
+        border: 1px solid <?php echo get_theme_mod('active_link_color'); ?>
+      }
+
+		<?php elseif ( get_theme_mod('active_nav_styling') == 'radius' ) : ?>
+      li.current_page_item {
+        border: 1px solid <?php echo get_theme_mod('active_link_color'); ?>;
+        border-radius: 7px;
+      }
+    <?php endif; ?>
   
   </style> <?php
 }

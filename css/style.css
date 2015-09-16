@@ -2258,7 +2258,7 @@ header#masthead .site-branding .site-description { width: 30%; margin: 0 auto; }
 body { overflow-x: hidden; max-width: 100%; }
 
 @media (min-width: 62em) { .menu-toggle { display: none; } }
-#primary-menu { display: table; margin-left: 0; width: 100%; }
+#primary-menu { display: table; margin-left: 0; width: 100%; margin-top: 1rem; }
 
 #primary-menu li { display: table-cell; height: 40px; line-height: 40px; text-align: center; white-space: nowrap; }
 

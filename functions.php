@@ -132,12 +132,17 @@ add_action( 'widgets_init', 'artist_showcase_widgets_init' );
 function artist_showcase_scripts() {
 	wp_enqueue_style( 'artist_showcase-style', get_stylesheet_uri() );
 
+	wp_register_script( 'waypoints', get_template_directory_uri() . '/js/jquery.waypoints.min.js', array(), '20120206', true );
 	wp_enqueue_script( 'lounge-libs', get_template_directory_uri() . '/js/libs/libs.min.js', array(), '20120206', true );
 	wp_enqueue_script( 'lounge-foundation', get_template_directory_uri() . '/js/libs/foundation.min.js', array(), '20120206', true );
 	wp_enqueue_script( 'lounge-app', get_template_directory_uri() . '/js/app.min.js', array(), '20120206', true );
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
+	}
+	
+	if ( get_theme_mod('sticky_nav') == 'true' ) {
+	  wp_enqueue_script( 'waypoints');
 	}
 }
 add_action( 'wp_enqueue_scripts', 'artist_showcase_scripts' );
