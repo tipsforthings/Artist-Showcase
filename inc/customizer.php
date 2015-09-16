@@ -26,6 +26,7 @@ function artist_showcase_customize_register( $wp_customize ) {
 	$wp_customize->get_section( 'title_tagline' )->panel = 'header';
 	$wp_customize->add_section( 'branding_animation', array( 'title'    => __( 'Branding Animation', 'artist_showcase' ), 'panel' => 'header', 'priority' => 3 ) );
 	$wp_customize->add_section( 'branding_underline', array( 'title'    => __( 'Branding Seperator', 'artist_showcase' ), 'panel' => 'header', 'priority' => 4 ) );
+	$wp_customize->add_section( 'navigation_settings', array( 'title'    => __( 'Navigation Settings', 'artist_showcase' ), 'panel' => 'header', 'priority' => 5 ) );
 	$wp_customize->get_section( 'header_image' )->priority = '1';
 	$wp_customize->get_section( 'title_tagline' )->priority = '2';
 	$wp_customize->get_section( 'colors' )->panel = 'base';
@@ -38,6 +39,10 @@ function artist_showcase_customize_register( $wp_customize ) {
 	$wp_customize->add_panel( 'header', array( 'title' => __('Header', 'artist_showcase'), 'priority' => '2' ) );
 	$wp_customize->add_panel( 'base', array( 'title' => __('Base Settings', 'artist_showcase'), 'priority' => '1' ) );
 	$wp_customize->add_setting( 'header_animate', array( 'default' => 'false' ) );
+	$wp_customize->add_setting( 'sticky_nav', array( 'default' => 'false' ) );
+	$wp_customize->add_setting( 'active_nav_styling', array( 'default' => 'underline' ) );
+	$wp_customize->add_setting( 'nav_link_color', array( 'default' => '#008CBA' ) );
+	$wp_customize->add_setting( 'active_link_color', array( 'default' => '#008CBA' ) );
 	$wp_customize->add_setting( 'header_underline', array( 'default' => 'false' ) );
 	$wp_customize->add_setting( 'branding_gradient', array( 'default' => 'gradient' ) );
 	$wp_customize->add_setting( 'branding_seperator_color', array( 'default' => '#ff0000' ) );
@@ -45,6 +50,19 @@ function artist_showcase_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'header_animate', array( 'label'    => __( 'Animate Header', 'artist_showcase' ), 'section'  => 'branding_animation', 'settings' => 'header_animate', 'default' => 'false', 'type'     => 'radio', 'choices'  => array(
 			  'true'  => 'True',
 			  'false' => 'False',
+		  ),
+	  )
+  );
+	$wp_customize->add_control( 'sticky_nav', array( 'label'    => __( 'Sticky Navigation', 'artist_showcase' ), 'section'  => 'navigation_settings', 'settings' => 'sticky_nav', 'default' => 'false', 'type'     => 'radio', 'choices'  => array(
+			  'true'  => 'Sticky',
+			  'false' => 'Scrolling',
+		  ),
+	  )
+  );
+	$wp_customize->add_control( 'active_nav_styling', array( 'label'    => __( 'Active Link Styling', 'artist_showcase' ), 'section'  => 'navigation_settings', 'settings' => 'active_nav_styling', 'default' => 'false', 'type'     => 'radio', 'choices'  => array(
+			  'box'  => 'Box',
+			  'underline' => 'Underline',
+			  'radius' => 'Radius',
 		  ),
 	  )
   );
@@ -70,6 +88,28 @@ function artist_showcase_customize_register( $wp_customize ) {
 		    'label'      => __( 'Seperator Color', 'artist_showcase' ),
 		    'section'    => 'branding_underline',
 		    'settings'   => 'branding_seperator_color',
+	    ) 
+	  )
+  );
+	$wp_customize->add_control( 	
+	  new WP_Customize_Color_Control( 
+	    $wp_customize, 
+	    'nav_link_color', 
+	    array(
+		    'label'      => __( 'Link Color', 'artist_showcase' ),
+		    'section'    => 'navigation_settings',
+		    'settings'   => 'nav_link_color',
+	    ) 
+	  )
+  );
+	$wp_customize->add_control( 	
+	  new WP_Customize_Color_Control( 
+	    $wp_customize, 
+	    'active_link_color', 
+	    array(
+		    'label'      => __( 'Active Color', 'artist_showcase' ),
+		    'section'    => 'navigation_settings',
+		    'settings'   => 'active_link_color',
 	    ) 
 	  )
   );
