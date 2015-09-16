@@ -25,7 +25,7 @@
 $(function() {                     // When the page has loaded,
   $('nav').waypoint(               // create a waypoint
     function() {
-      $('.nav-container').toggleClass('sticky');
+      $('.site-header').toggleClass('sticky');
       
     }
   )

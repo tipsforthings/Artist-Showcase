@@ -335,7 +335,26 @@ function artist_showcase_branding() {
         border-radius: 7px;
       }
     <?php endif; ?>
-  
+      .entry-title {
+        position: relative;
+        
+      }
+      .entry-title a {
+        position: relative;
+      }  
+      .entry-title a::after {
+        position: absolute;
+        content: "";
+        bottom: 1px;
+        left: 0;
+        height: <?php echo get_theme_mod('branding_seperator_height') ?>;
+        width: 100%;
+        background: <?php echo get_theme_mod('active_link_color') ?>;
+        background: linear-gradient(left, transparent 0%, <?php echo get_theme_mod('active_link_color') ?> 50%, transparent 100%);
+        background: -moz-linear-gradient(left, transparent 0%, <?php echo get_theme_mod('active_link_color') ?> 50%, transparent 100%);
+        background: -o-linear-gradient(left, transparent 0%, <?php echo get_theme_mod('active_link_color') ?> 50%, transparent 100%);
+        background: -webkit-linear-gradient(left, transparent 0%, <?php echo get_theme_mod('active_link_color') ?> 50%, transparent 100%);
+      }
   </style> <?php
 }
 add_action( 'wp_head', 'artist_showcase_branding' );

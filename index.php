@@ -20,10 +20,7 @@ get_header(); ?>
       <?php if ( ! is_active_sidebar( 'sidebar-1' ) ) { ?>
         <div class="large-12 columns">
       <?php } elseif ( is_active_sidebar( 'sidebar-1' ) ) { ?>
-        <div class="large-3 columns">
-          <?php get_sidebar(); ?>
-        </div>
-        <div class="large-9 columns">
+        <div class="large-9 large-push-3 columns">
       <?php } ?>
 		<?php if ( have_posts() ) : ?>
 
@@ -57,6 +54,11 @@ get_header(); ?>
 		  <?php endif; ?>
   
         </div>
+      <?php if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
+        <div class="large-3 large-pull-9 columns">
+          <?php get_sidebar(); ?>
+        </div>
+      <?php } ?>
       </div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
