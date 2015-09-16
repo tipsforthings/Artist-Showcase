@@ -16,7 +16,15 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
+      <div class="row">
+      <?php if ( ! is_active_sidebar( 'sidebar-1' ) ) { ?>
+        <div class="large-12 columns">
+      <?php } elseif ( is_active_sidebar( 'sidebar-1' ) ) { ?>
+        <div class="large-3 columns">
+          <?php get_sidebar(); ?>
+        </div>
+        <div class="large-9 columns">
+      <?php } ?>
 		<?php if ( have_posts() ) : ?>
 
 			<?php if ( is_home() && ! is_front_page() ) : ?>
@@ -24,7 +32,6 @@ get_header(); ?>
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 				</header>
 			<?php endif; ?>
-
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
@@ -42,17 +49,16 @@ get_header(); ?>
             Download PDF Here
           </a>
 			<?php endwhile; ?>
-
 			<?php the_posts_navigation(); ?>
+		  <?php else : ?>
 
-		<?php else : ?>
+			  <?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-		<?php endif; ?>
-
+		  <?php endif; ?>
+  
+        </div>
+      </div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

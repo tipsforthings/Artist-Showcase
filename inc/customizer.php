@@ -320,6 +320,10 @@ function artist_showcase_branding() {
         background: -o-linear-gradient(left, transparent 0%, <?php echo get_theme_mod('active_link_color') ?> 50%, transparent 100%);
         background: -webkit-linear-gradient(left, transparent 0%, <?php echo get_theme_mod('active_link_color') ?> 50%, transparent 100%);
       }
+      .sticky .row {
+        border-bottom: 1px solid <?php echo get_theme_mod('active_link_color') ?>;
+        box-shadow: 0px 3px 2px -2px <?php echo get_theme_mod('active_link_color') ?>;
+      }
 		<?php elseif ( get_theme_mod('active_nav_styling') == 'box' ) : ?>
       li.current_page_item {
         border: 1px solid <?php echo get_theme_mod('active_link_color'); ?>

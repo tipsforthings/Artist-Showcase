@@ -2255,11 +2255,25 @@ header#masthead { width: 100%; }
 header#masthead .site-branding .site-title, header#masthead .site-branding .site-description { text-align: center; }
 header#masthead .site-branding .site-description { width: 30%; margin: 0 auto; }
 
+nav { position: relative; padding: 2em; }
+
 body { overflow-x: hidden; max-width: 100%; }
 
 @media (min-width: 62em) { .menu-toggle { display: none; } }
-#primary-menu { display: table; margin-left: 0; width: 100%; margin-top: 1rem; }
+#primary-menu { display: table; margin-left: 0; width: 100%; margin-top: 2rem; }
 
 #primary-menu li { display: table-cell; height: 40px; line-height: 40px; text-align: center; white-space: nowrap; }
 
 #primary-menu li a { display: block; }
+
+#page { border-left: 1px solid #008CBA; border-right: 1px solid #008CBA; box-shadow: 0px 0px 1px #008CBA; -moz-box-shadow: 0px 0px 1px #008CBA; -o-box-shadow: 0px 0px 1px #008CBA; -webkit-box-shadow: 0px 0px 1px #008CBA; background-color: rgba(0, 0, 0, 0.6); }
+
+.content-area { padding: 1rem; box-sizing: border-box; }
+
+.sticky { position: fixed; top: 0; left: 0; right: 0; z-index: 1; }
+.sticky .row { max-width: 62.5rem; margin: 0 auto; }
+.sticky nav { padding: 0; background-color: rgba(255, 255, 255, 0.8); }
+.sticky nav ul { margin-top: 0; margin-bottom: 0; }
+
+.admin-bar .sticky .row nav #primary-menu { margin-top: 32px !important; }
+@media screen and (max-width: 782px) { .admin-bar .sticky .row nav #primary-menu { margin-top: 46px !important; } }

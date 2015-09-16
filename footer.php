@@ -13,16 +13,23 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'artist_showcase' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'artist_showcase' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'artist_showcase' ), 'Artist Showcase', '<a href="http://alxs.co.uk/" rel="designer">Underscores.me</a>' ); ?>
+	<footer id="colophon" class="site-footer row" role="contentinfo">
+	  <div class="large-8 large-offset-2 columns site-info">
+			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'artist_showcase' ), 'Artist Showcase', '<a href="http://alxs.co.uk/" rel="designer">Alex Scott</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-
+<script>
+$(function() {                     // When the page has loaded,
+  $('nav').waypoint(               // create a waypoint
+    function() {
+      $('.nav-container').toggleClass('sticky');
+      
+    }
+  )
+});
+</script>
 </body>
 </html>
