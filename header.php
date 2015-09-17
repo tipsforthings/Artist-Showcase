@@ -26,9 +26,9 @@
   
 	<header id="masthead" class="site-header" role="banner">
  		<div class="site-branding">
-				<h1 class="site-title <?php if ( get_theme_mod('header_animate') == true ) { ?>animated <?php echo get_theme_mod('title_animation', 'rubberBand'); } ?> "><a class="animated swing" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<h1 class="site-title <?php if ( get_theme_mod('header_animate') == 'true' ) { ?>animated <?php echo get_theme_mod('title_animation', 'rubberBand'); } ?> "><a class="animated swing" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 
-			<div class="site-description <?php if ( get_theme_mod('header_animate') == true ) { ?>animated <?php echo get_theme_mod('tagline_animation', 'rubberBand'); } ?>"><?php bloginfo( 'description' ); ?></div>
+			<div class="site-description <?php if ( get_theme_mod('header_animate') == 'true' ) { ?>animated <?php echo get_theme_mod('tagline_animation', 'rubberBand'); } ?>"><?php bloginfo( 'description' ); ?></div>
 			<?php if ( get_theme_mod('header_underline') == true ) { ?>
 			  <div id="branding-underline"></div>
 			
