@@ -24,19 +24,6 @@ body {
     display: none;
   }
 }
-#primary-menu {
-  display: table;
-  margin-left: 0;
-  width: 100%;
-  margin-top: 2rem;
-}
-#primary-menu li {
-  display: table-cell;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  white-space: nowrap;
-}
 #primary-menu li a {
   display: block;
 }

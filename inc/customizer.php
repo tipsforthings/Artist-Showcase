@@ -290,7 +290,7 @@ function artist_showcase_branding() {
       padding-bottom: 2px;
     }
     body { padding: 0; }
-    .site-description::after {
+    .desc p a::after {
       position: absolute;
       content: "";
       bottom: 1px;
@@ -304,8 +304,10 @@ function artist_showcase_branding() {
       background: -webkit-linear-gradient(left, transparent 0%, <?php echo get_theme_mod('branding_seperator_color') ?> 50%, transparent 100%);
     }
     <?php if ( get_theme_mod('active_nav_styling') == 'underline' ) : ?>
-      #primary-menu li {
-        position: relative;
+      @media(min-width:40.0625rem) {
+        #primary-menu .menu-item {
+          position: relative;
+        }
       }
       li.current_page_item a::after {
         position: absolute;

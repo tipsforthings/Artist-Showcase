@@ -24,20 +24,6 @@
 <script>
 
 
-var sticky = new Waypoint.Sticky(
-{
-  element: $('.site-header')[0],
-  stuckClass: 'sticky',
-  offset: '-100px',
-  handler: function(direction) {
-    if (direction == 'down') {
-      $('.site-header').css('display','none').fadeIn(250);
-    } else {
-      $('.site-header').css('display','none').fadeIn(250);
-    }
-  }
-})
-
 
 </script>
 </body>

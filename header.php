@@ -24,14 +24,18 @@
 <body <?php body_class(); ?>>
 <div id="page" class="row hfeed site">
   
-	<header id="masthead" class="site-header" role="banner">
+	<header id="masthead" class="site-header unstuck" role="banner">
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
           <h1 class="site-title <?php if ( get_theme_mod('header_animate') == 'true' ) { ?>animated <?php echo get_theme_mod('title_animation', 'rubberBand'); } ?>" ><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
         </li>
-        <li class="name desc"><h1 class="site-title <?php if ( get_theme_mod('header_animate') == 'true' ) { ?>animated <?php echo get_theme_mod('tagline_animation', 'rubberBand'); } ?>" ><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'description' ); ?></a></h1>
+        <li class="desc"><p class="site-description <?php if ( get_theme_mod('header_animate') == 'true' ) { ?>animated <?php echo get_theme_mod('tagline_animation', 'rubberBand'); } ?>" ><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'description' ); ?></a></p>
         </li>
+			  <?php if ( get_theme_mod('header_underline') == true ) { ?>
+			    <div id="branding-underline"></div>
+			
+			  <?php } ?>
          <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
@@ -46,7 +50,7 @@
 	          'container'       => 'false',
 	          'container_class' => 'top-bar-section',
 	          'container_id'    => '',
-	          'menu_class'      => 'right',
+	          'menu_class'      => '',
 	          'menu_id'         => 'primary-menu',
 	          'echo'            => true,
 	          'fallback_cb'     => 'wp_page_menu',
