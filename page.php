@@ -16,6 +16,12 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+      <div class="row">
+      <?php if ( ! is_active_sidebar( 'sidebar-1' ) ) { ?>
+        <div class="large-12 columns">
+      <?php } elseif ( is_active_sidebar( 'sidebar-1' ) ) { ?>
+        <div class="large-9 large-push-3 columns">
+      <?php } ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
@@ -30,8 +36,14 @@ get_header(); ?>
 
 			<?php endwhile; // End of the loop. ?>
 
+        </div>
+      <?php if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
+        <div class="large-3 large-pull-9 columns">
+          <?php get_sidebar(); ?>
+        </div>
+      <?php } ?>
+      </div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
