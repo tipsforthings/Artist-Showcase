@@ -2254,6 +2254,10 @@ th.hide-for-touch { display: table-cell !important; }
 body { background-size: cover; }
 body #page { border-left: 1px solid #008CBA; border-right: 1px solid #008CBA; box-shadow: 0px 0px 1px #008CBA; -moz-box-shadow: 0px 0px 1px #008CBA; -o-box-shadow: 0px 0px 1px #008CBA; -webkit-box-shadow: 0px 0px 1px #008CBA; background-color: #e6e6e6; }
 body #page .top-bar { background-color: transparent; }
+body #page .top-bar .title-area .site-title { font-size: 2.45rem; line-height: 1.4; }
+body #page .top-bar .title-area .site-title a { color: #008CBA; }
+body #page .top-bar .title-area .desc { display: none; }
 
 @media only screen and (min-width: 40.0625em) { .top-bar { background-color: transparent; }
-  .top-bar .title-area { width: 100%; display: block; text-align: center; } }
+  .top-bar .title-area { width: 100%; display: block; text-align: center; }
+  .top-bar .title-area .desc { display: inline; } }

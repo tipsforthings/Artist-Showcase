@@ -28,7 +28,9 @@
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1 class="<?php if ( get_theme_mod('header_animate') == 'true' ) { ?>animated <?php echo get_theme_mod('title_animation', 'rubberBand'); } ?>" ><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+          <h1 class="site-title <?php if ( get_theme_mod('header_animate') == 'true' ) { ?>animated <?php echo get_theme_mod('title_animation', 'rubberBand'); } ?>" ><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+        </li>
+        <li class="name desc"><h1 class="site-title <?php if ( get_theme_mod('header_animate') == 'true' ) { ?>animated <?php echo get_theme_mod('tagline_animation', 'rubberBand'); } ?>" ><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'description' ); ?></a></h1>
         </li>
          <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
