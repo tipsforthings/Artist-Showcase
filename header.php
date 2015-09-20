@@ -25,18 +25,42 @@
 <div id="page" class="row hfeed site">
   
 	<header id="masthead" class="site-header" role="banner">
- 		<div class="site-branding">
-				<h1 class="site-title <?php if ( get_theme_mod('header_animate') == 'true' ) { ?>animated <?php echo get_theme_mod('title_animation', 'rubberBand'); } ?> "><a class="animated swing" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">My Site</a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
 
-			<div class="site-description <?php if ( get_theme_mod('header_animate') == 'true' ) { ?>animated <?php echo get_theme_mod('tagline_animation', 'rubberBand'); } ?>"><?php bloginfo( 'description' ); ?></div>
-			<?php if ( get_theme_mod('header_underline') == true ) { ?>
-			  <div id="branding-underline"></div>
-			
-			<?php } ?>
-		</div><!-- .site-branding -->
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
+  <section class="top-bar-section">
+
+    <!-- Left Nav Section -->
+	<?php 
+			$defaults = array(
+	      'theme_location'  => 'primary',
+	      'menu'            => '',
+	      'container'       => 'false',
+	      'container_class' => 'top-bar-section',
+	      'container_id'    => '',
+	      'menu_class'      => 'right',
+	      'menu_id'         => 'primary-menu',
+	      'echo'            => true,
+	      'fallback_cb'     => 'wp_page_menu',
+	      'before'          => '',
+	      'after'           => '',
+	      'link_before'     => '',
+	      'link_after'      => '',
+	      'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+	      'depth'           => 0,
+	      'walker'          => new Top_Bar_Walker(),
+      );
+
+wp_nav_menu( $defaults ); ?>
+  </section>
+</nav>
+
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

@@ -3,24 +3,4 @@
 @import 'libs/libs';
 @import 'foundation';
 
-body {
-  background-size: cover;
-  #page {
-    border-left: 1px solid #008CBA;
-    border-right: 1px solid #008CBA;
-    box-shadow: 0px 0px 1px #008CBA;
-    -moz-box-shadow: 0px 0px 1px #008CBA;
-    -o-box-shadow: 0px 0px 1px #008CBA;
-    -webkit-box-shadow: 0px 0px 1px #008CBA;
-    background-color: #e6e6e6;
-    .row {
-      .row {
-        margin: 0 !important;
-      }
-    }
-    .content-area {
-      padding: 1rem;
-      box-sizing: border-box;
-    }
-  }
-}
+
