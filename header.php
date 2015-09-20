@@ -25,41 +25,41 @@
 <div id="page" class="row hfeed site">
   
 	<header id="masthead" class="site-header" role="banner">
-<nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="#">My Site</a></h1>
-    </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1 class="<?php if ( get_theme_mod('header_animate') == 'true' ) { ?>animated <?php echo get_theme_mod('title_animation', 'rubberBand'); } ?>" ><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+        </li>
+         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
 
-  <section class="top-bar-section">
+      <section class="top-bar-section">
 
-    <!-- Left Nav Section -->
-	<?php 
-			$defaults = array(
-	      'theme_location'  => 'primary',
-	      'menu'            => '',
-	      'container'       => 'false',
-	      'container_class' => 'top-bar-section',
-	      'container_id'    => '',
-	      'menu_class'      => 'right',
-	      'menu_id'         => 'primary-menu',
-	      'echo'            => true,
-	      'fallback_cb'     => 'wp_page_menu',
-	      'before'          => '',
-	      'after'           => '',
-	      'link_before'     => '',
-	      'link_after'      => '',
-	      'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-	      'depth'           => 0,
-	      'walker'          => new Top_Bar_Walker(),
-      );
+        <!-- Left Nav Section -->
+	    <?php 
+			    $defaults = array(
+	          'theme_location'  => 'primary',
+	          'menu'            => '',
+	          'container'       => 'false',
+	          'container_class' => 'top-bar-section',
+	          'container_id'    => '',
+	          'menu_class'      => 'right',
+	          'menu_id'         => 'primary-menu',
+	          'echo'            => true,
+	          'fallback_cb'     => 'wp_page_menu',
+	          'before'          => '',
+	          'after'           => '',
+	          'link_before'     => '',
+	          'link_after'      => '',
+	          'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+	          'depth'           => 0,
+	          'walker'          => new Top_Bar_Walker(),
+          );
 
-wp_nav_menu( $defaults ); ?>
-  </section>
-</nav>
+    wp_nav_menu( $defaults ); ?>
+      </section>
+    </nav>
 
 	</header><!-- #masthead -->
 
