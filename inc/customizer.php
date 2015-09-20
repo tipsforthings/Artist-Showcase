@@ -309,7 +309,7 @@ function artist_showcase_branding() {
           position: relative;
         }
       }
-      li.current_page_item a::after {
+      li.active::after {
         position: absolute;
         content: "";
         bottom: 1px;

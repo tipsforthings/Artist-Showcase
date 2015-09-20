@@ -2278,6 +2278,8 @@ body #page .sticky nav ul { margin-top: 0; margin-bottom: 0; }
   body #page .unstuck .top-bar .title-area .site-title a { color: #008CBA; }
   body #page .unstuck .top-bar #primary-menu { display: table; margin-left: 0; width: 100%; margin-top: 2rem; }
   body #page .unstuck .top-bar #primary-menu li.menu-item { display: table-cell; height: 40px; line-height: 40px; text-align: center; white-space: nowrap; z-index: 999; }
+  body #page .unstuck .top-bar #primary-menu li.menu-item a { color: #333333; font-size: 1rem; }
+  body #page .unstuck .top-bar #primary-menu li.menu-item a:hover, body #page .unstuck .top-bar #primary-menu li.menu-item a.active { color: #008CBA; }
   body #page .unstuck .top-bar #primary-menu li.menu-item .dropdown li { z-index: 999; } }
 @media only screen and (max-width: 40.0625em) { body #page .top-bar .title-area .desc { display: none !important; }
   body #page .top-bar .title-area #branding-underline { display: none; } }

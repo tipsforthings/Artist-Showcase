@@ -120,6 +120,14 @@ body {
               text-align: center;
               white-space: nowrap;
               z-index: 999;
+              a {
+                color: #333333;
+                font-size: 1rem;
+                &:hover,
+                &.active {
+                  color: #008CBA;
+                }
+              }
               .dropdown {
                 li {
                   z-index: 999;
